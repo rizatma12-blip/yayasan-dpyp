@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yayasan DPYP - Dwi Prasetyo Yuli Priyono</title>
+  <meta name="description" content="Yayasan DPYP: Lembaga sosial, keagamaan & kemanusiaan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #00a8ff;
+      --primary-dark: #007acc;
+      --secondary: #fbc531;
+      --bg-light: #f0faff;
+      --text-dark: #1e272e;
+      --text-muted: #57606f;
+      --radius: 12px;
+      --shadow-light: 0 4px 12px rgba(0,0,0,0.08);
+      --maxwidth: 1100px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body { margin:0; background:#ffffff; color:var(--text-dark); }
+
+    h1, h2, h3, h4 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    a:hover { color: var(--primary-dark); }
+
+    .container {
+      max-width: var(--maxwidth);
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .content {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 40px;
+      margin: 30px 0;
+      box-shadow: var(--shadow-light);
+    }
+
+    .light {
+      background: var(--bg-light);
+      box-shadow: none;
+    }
+
+    /* NAVBAR */
+    .site-header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      color: var(--primary);
+      font-size: 1.4em;
+      font-weight: 800;
+    }
+
+    .logo-container img {
+      height: 55px;
+      width: auto;
+      margin-right: 12px;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-right a {
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      color: var(--text-dark);
+    }
+
+    .nav-right a:hover {
+      background: #dff6ff;
+    }
+
+    .btn-cta {
+      background: var(--secondary);
+      color: #fff !important;
+      padding: 10px 18px !important;
+      border-radius: var(--radius);
+      font-weight: 700 !important;
+      box-shadow: 0 3px 12px rgba(251, 197, 49, 0.5);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(0,168,255,0.7), rgba(0,168,255,0.7)), url('assets/images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 110px 20px;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 { font-size: 3em; }
+    .hero-sub { font-size: 1.1em; opacity: 0.9; }
+    .btn-primary {
+      background: var(--secondary);
+      color: #fff !important;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-primary:hover { background: #e5ae10; }
+
+    /* GRID */
+    .two-col { display: flex; gap: 40px; }
+    .two-col > div { flex: 1; }
+
+    .info-list { list-style: none; padding: 0; }
+    .info-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .services-grid article {
+      background: linear-gradient(180deg,#fff 0%, #f1f9ff 100%);
+      padding: 25px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-light);
+      border-left: 5px solid var(--primary);
+      transition: 0.3s;
+    }
+
+    .services-grid article:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      transition: 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--primary-dark);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .two-col { flex-direction: column; }
+    }
+
+    @media(max-width:500px) {
+      .services-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2em; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a class="logo-container" href="#home">
+      <img src="logo-dpyp-putih.png" width="1000" height="1000" />
+      YAYASAN DPYP
+    </a>
+
+    <div class="nav-right">
+      <a href="#home">Home</a>
+      <a href="#tentang-kami">Tentang Kami</a>
+      <a href="#pelayanan-kami">Pelayanan</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak-kami" class="btn-cta">BANTU / KONTAK</a>
+    </div>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Yayasan Dwi Prasetyo Yuli Priyono (DPYP)</h1>
+  <p class="hero-sub">Berdiri untuk masyarakat — sosial, pendidikan, dan kemanusiaan.</p>
+  <a href="#tentang-kami" class="btn-primary">Tentang Kami</a>
+</section>
+
+<main>
+  <section id="tentang-kami" class="content container">
+  <h2>Tentang Kami</h2>
+  <p>Yayasan bergerak di bidang sosial, keagamaan, dan kemanusiaan.</p>
+
+  <style>
+    .accordion { 
+      margin-bottom: 20px; 
+      padding: 20px; 
+      background: #f7fbff; 
+      border-radius: 10px; 
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08); 
+    }
+    .accordion summary { 
+      font-size: 1.2em; 
+      font-weight: 700; 
+      cursor: pointer; 
+      color: var(--primary-dark); 
+    }
+    .accordion summary:hover { color: var(--primary); }
+    .acc-content { margin-top: 15px; line-height: 1.8; white-space: pre-line; }
+  </style>
+
+  <!-- IDENTITAS & LEGALITAS -->
+  <details class="accordion">
+    <summary>Identitas & Legalitas Yayasan DPYP</summary>
+    <div class="acc-content">
+IDENTITAS & LEGALITAS YAYASAN DPYP
+
+Nama: Yayasan Dwi Prasetyo Yuli Priyono  
+Nama Singkat: Yayasan DPYP  
+Bidang Kegiatan: Sosial, Keagamaan, dan Kemanusiaan  
+Alamat: Jl. Kabupaten, Kronggahan RT 05/RW 003, Trihanggo, Gamping, Sleman, Yogyakarta  
+Akta Notaris: Caecilia Dewi Purwitasari, S.H., M.KN.  
+Nomor 01 Tanggal 2 November 2021  
+SK Menkumham RI: AHU-026447.AH.04. Tahun 2021  
+Ditetapkan pada 09 November 2021  
+SK Domisili: 223/U/TRH/2025  
+Nomor Rekening Yayasan: BRI 3019-01-044427-53-7  
+NPWP Yayasan: 0534-7404-3654-2000  
+NIB: 0210250093414  
+Email: dpypcenter@gmail.com  
+HP/WA: 0878 3831 3790
+    </div>
+  </details>
+
+  <!-- VISI & MISI -->
+  <details class="accordion">
+    <summary>Visi dan Misi Yayasan DPYP</summary>
+    <div class="acc-content">
+VISI YAYASAN
+
+Terwujudnya insan kamil, melalui kegiatan sosial dan pendidikan, ideologi kebangsaan, budaya, dan agama untuk mencapai kehidupan bermasyarakat, berbangsa, dan bernegara yang berkarakter dan berkepribadian Nusantara.
+
+MISI – MISI YAYASAN
+
+1. Membangun insan menjadi cerdas secara intelektual, emosional, dan spiritual serta menanamkan ideologi melalui pendidikan formal, nonformal, dan kegiatan kemasyarakatan, kebudayaan, dan keagamaan.  
+2. Mengembangkan kecerdasan insan secara nyata dalam masyarakat melalui budaya dan agama, bersinergi dengan pemerintahan maupun pihak swasta.  
+3. Merawat insan agar tetap dalam kecerdasannya demi kemanfaatannya bagi masyarakat, bangsa, dan negara.  
+4. Menjaga masyarakat agar tetap dalam kondisi berkarakter dan berkepribadian Nusantara.
+    </div>
+  </details>
+
+  <!-- PROFIL YAYASAN -->
+  <details class="accordion">
+    <summary>Profil Yayasan DPYP</summary>
+    <div class="acc-content">
+PROFIL YAYASAN  
+DWI PRASETYO YULI PRIYONO  
+(YAYASAN DPYP)
+
+AKTA NOTARIS  
+Nomor 01 Tanggal 02 November 2021  
+
+SK KEMENKUMHAM RI  
+Nomor AHU-0026447.AH.TAHUN 2021  
+Ditetapkan di Jakarta tanggal 09 November 2021  
+
+JL. Kabupaten KM. 4,7  
+Kronggahan RT 05/RW 003  
+Trihanggo, Gamping, Sleman  
+Yogyakarta  
+0878 3831 3790
+    </div>
+  </details>
+
+  <!-- SEJARAH YAYASAN -->
+  <details class="accordion">
+    <summary>Sejarah Berdirinya Yayasan DPYP</summary>
+    <div class="acc-content">
+SEJARAH BERDIRINYA YAYASAN DPYP
+
+Berdirinya yayasan ini dilatarbelakangi oleh keprihatinan dan kepedulian pendiri terhadap kondisi masyarakat saat ini.  
+
+Beberapa bentuk keprihatinan pendiri:
+
+1. Pendidikan dan pengajaran layak masih harus diperjuangkan, terutama masyarakat kurang mampu.  
+2. Sistem pendidikan makin jauh dari karakter bangsa Indonesia.  
+3. Kurangnya kebanggaan terhadap bangsa dan negara.  
+4. Apatisme masyarakat terhadap jalannya pemerintahan.  
+5. Menurunnya toleransi antar sesama baik dalam agama maupun budaya.  
+6. Keterbatasan pemerintah menangani permasalahan masyarakat.  
+7. Kurangnya sinergitas antar lembaga dan pemerintah dalam pelayanan sosial kemanusiaan.
+
+Yayasan mulai dirintis pada Agustus 2021 dan mulai berproses secara legal pada September 2021. Nama yayasan diambil dari nama pendiri: “Yayasan Dwi Prasetyo Yuli Priyono (DPYP)”.
+
+Hari lahir yayasan ditetapkan pada 09 November 2021 sesuai SK Kemenkumham RI.
+
+Yayasan ini hadir sebagai wadah perjuangan untuk mewujudkan gagasan pendiri dalam program sosial, keagamaan, dan kemanusiaan.
+    </div>
+  </details>
+
+  <!-- TUJUAN YAYASAN -->
+  <details class="accordion">
+    <summary>Tujuan Yayasan DPYP</summary>
+    <div class="acc-content">
+TUJUAN YAYASAN
+
+Mencerdaskan kehidupan masyarakat dalam berbangsa dan bernegara.  
+Menjaga dan melestarikan Budaya Nusantara.  
+Menanamkan karakter dan kepribadian Nusantara dari sisi budaya maupun agama.  
+Memberikan bantuan kepada masyarakat.  
+Bersama pihak terkait meningkatkan kesejahteraan masyarakat.  
+Melestarikan dan menjaga lingkungan dengan baik.
+    </div>
+  </details>
+</section>
+
+  </section>
+
+  <section id="pelayanan-kami" class="content container">
+    <h2>Pelayanan Kami</h2>
+    <div class="services-grid">
+      <article>
+        <h4>Edukasi</h4>
+        <p>Pembinaan dan penyuluhan masyarakat.</p>
+      </article>
+      <article>
+        <h4>Sosial</h4>
+        <p>Bantuan kemanusiaan dan santunan.</p>
+      </article>
+      <article>
+        <h4>Pemberdayaan</h4>
+        <p>Program peningkatan ekonomi masyarakat.</p>
+      </article>
+      <article>
+        <h4>Budaya</h4>
+        <p>Pelestarian seni dan karakter Nusantara.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="makna-3b" class="content container">
+  <h2>Makna 3B</h2>
+
+  <div class="three-col">
+    <div>
+      <img src="logo-3b.jpeg" width="150" height="150" />
+    </div>
+
+    <div class="symbol-right">
+      <h3>Berkarya • Bermanfaat • Berkah</h3>
+      <p class="lead">
+        Logo 3B merupakan simbol filosofi Yayasan DPYP dalam menjalankan setiap
+        program dan kegiatannya. Tiga unsur utama ini menjadi identitas gerak 
+        yayasan dalam pengabdian sosial, pendidikan, keagamaan, dan kemanusiaan.
+      </p>
+
+      <ul class="info-list">
+        <li><strong>Berkarya</strong> — Mengajak seluruh elemen masyarakat untuk terus berkarya, berkontribusi, dan menghasilkan sesuatu yang bermanfaat.</li>
+        <li><strong>Bermanfaat</strong> — Setiap karya yang dilakukan harus membawa manfaat nyata bagi masyarakat.</li>
+        <li><strong>Berkah</strong> — Karya dan manfaat yang diberikan diharapkan membawa kebaikan dan keberkahan bagi semua pihak.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+  <section id="galeri" class="content container light">
+    <h2>Galeri Kegiatan</h2>
+    <div class="gallery-grid">
+      <img src="assets/images/galeri1.jpg" alt="Galeri 1" />
+      <img src="assets/images/galeri2.jpg" alt="Galeri 2" />
+      <img src="assets/images/galeri3.jpg" alt="Galeri 3" />
+      <img src="assets/images/galeri4.jpg" alt="Galeri 4" />
+    </div>
+  </section>
+
+  <section id="kontak-kami" class="content container">
+    <h2>Kontak Kami</h2>
+    <p>Alamat: Jl. Kabupaten, Trihanggo, Sleman, Yogyakarta</p>
+    <p>Email: <a href="mailto:dpypcenter@gmail.com">dpypcenter@gmail.com</a></p>
+    <p>WA: <a href="https://wa.me/6287838313790">0878 3831 3790</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2025 Yayasan DPYP - Semua Hak Dilindungi.</p>
+</footer>
+
+</body>
+</html>
